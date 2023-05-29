@@ -9,6 +9,7 @@ jobs:
     env:
       CI: true
       MONGO_URL: mongodb://0.0.0.0/nasa
+      PORT: 4000 #Add port to listen to
     strategy:
       matrix:
         node-version: [14.x, 16.x]
@@ -26,4 +27,5 @@ jobs:
           mongodb-version: ${{ matrix.mongodb-version }}
       - run: npm install
       - run: npm run build --prefix client
+      - run: npm run server #Start server to populate launches database
       - run: npm test
