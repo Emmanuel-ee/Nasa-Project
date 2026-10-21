@@ -97,6 +97,8 @@ async function populateLaunches() {
         },
       ],
     },
+  }, {
+    timeout: 15000,
   });
 
   if (response.status !== 200) {

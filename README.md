@@ -60,5 +60,9 @@ Render reports `No open ports detected`, check the earlier startup log for the
 database connection error. Confirm that `MONGO_URL` is the Atlas SRV URI, its
 credentials are correct and URL-encoded, and the Atlas network access list
 includes the Render service's outbound IP ranges. The application uses Node.js
-24 with a MongoDB driver version that supports it; redeploy the latest commit
-if the service is still running an older image.
+24 with a MongoDB driver version that supports it.
+
+The site starts serving after MongoDB and planet data are ready. SpaceX launch
+data is loaded in the background; if the SpaceX API is unavailable, the server
+logs the error and retries with increasing intervals, up to every five
+minutes. Launch data remains unavailable until the upstream API responds.
