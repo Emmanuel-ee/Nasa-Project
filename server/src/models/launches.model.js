@@ -136,7 +136,7 @@ async function loadLaunchData() {
   if (firstLaunch) {
     console.log("Launch data already loaded!");
   } else {
-    populateLaunches();
+    await populateLaunches();
   }
 }
 

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: nasa-project
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    healthCheckPath: /v1/planets
+    envVars:
+      - key: MONGO_URL
+        sync: false
